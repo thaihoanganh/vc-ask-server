@@ -22,6 +22,7 @@ export class AuthResolver {
     return await this.authService.register(registerInput);
   }
 
+  @Public()
   @Mutation(() => Auth)
   async login(@Args("loginInput") loginInput: LoginInput) {
     const user = await this.authService.findUserByEmail(loginInput.email);
